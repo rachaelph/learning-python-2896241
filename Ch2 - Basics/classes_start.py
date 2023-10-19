@@ -3,35 +3,52 @@
 # LinkedIn Learning Python course by Joe Marini
 #
 
-def main():
-    x, y = 10, 100
+class Vehicle():
+    def __init__(self, bodystyle):
+        self.bodystyle = bodystyle
 
-    # # conditional flow uses if, elif, else
-    # if x < y:
-    #     result = "x is less than y"
-    # elif x == y:
-    #     result = "x is the same as y"
-    # else: 
-    #     result = "x is greater than y"
-    
-    # print(result)
+    def drive(self, speed):
+        self.mode = "driving"
+        self.speed = speed
 
-    # # conditional statements let you use "a if C else b"
-    # result = "x is less than y" if x < y else "x is greater or equal to y"
-    # print(result)
+class Car(Vehicle):
+    def __init__(self, enginetype):
+        super().__init__("Car")
+        self.wheels = 4
+        self.doors = 4
+        self.enginetype = enginetype
 
-    # match-case makes it easy to compare multiple values
-    value = "42"
-    match value:
-        case "one":
-            result = 1
-        case "two":
-            result = 2
-        case "three" | "four":
-            result = (3,4)
-        case _:
-            result = -1
-    print(result)
+    def drive(self, speed):
+        super().drive(speed)
+        print("Driving my", self.enginetype, "car at", self.speed)
 
-if __name__ == "__main__":
-    main()
+
+class Motorcycle(Vehicle):
+    def __init__(self, enginetype, hassidecar):
+        super().__init__("Motorcycle")
+        if (hassidecar):
+            self.wheels = 3
+        else:
+            self.wheels = 2
+        self.doors = 0
+        self.enginetype = enginetype
+
+    def drive(self, speed):
+        super().drive(speed)
+        print("Driving my", self.enginetype, "motorcycle at", self.speed)
+
+
+car1 = Car("gas")
+car2 = Car("electric")
+mc1 = Motorcycle("gas", True)
+
+print(mc1.wheels)
+print(car1.enginetype)
+print(car2.doors)
+
+# classes hold data and functions:
+# adding drive methods
+
+car1.drive(30)
+car2.drive(40)
+mc1.drive(50)
