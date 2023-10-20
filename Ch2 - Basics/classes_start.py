@@ -11,6 +11,9 @@ class Vehicle():
         self.mode = "driving"
         self.speed = speed
 
+    def direction(self, direction):
+        self.direction = direction
+
 class Car(Vehicle):
     def __init__(self, enginetype):
         super().__init__("Car")
@@ -22,6 +25,9 @@ class Car(Vehicle):
         super().drive(speed)
         print("Driving my", self.enginetype, "car at", self.speed)
 
+    def direction(self, direction):
+        super().direction(direction)
+        print("Driving in the direction of", self.direction)
 
 class Motorcycle(Vehicle):
     def __init__(self, enginetype, hassidecar):
@@ -35,8 +41,11 @@ class Motorcycle(Vehicle):
 
     def drive(self, speed):
         super().drive(speed)
-        print("Driving my", self.enginetype, "motorcycle at", self.speed)
+        print("Driving my", self.enginetype, "car at", self.speed)
 
+    def direction(self, direction):
+        super().direction(direction)
+        print("Driving in the direction of", self.direction)
 
 car1 = Car("gas")
 car2 = Car("electric")
@@ -49,6 +58,6 @@ print(car2.doors)
 # classes hold data and functions:
 # adding drive methods
 
-car1.drive(30)
-car2.drive(40)
-mc1.drive(50)
+# car1.direction('forward')
+# car2.direction('reverse')
+# mc1.direction('forward')
