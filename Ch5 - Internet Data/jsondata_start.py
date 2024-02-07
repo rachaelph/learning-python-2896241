@@ -35,7 +35,7 @@ def printResults(data):
         feltReports = i["properties"]["felt"]
         if feltReports != None:
             if feltReports > 0:
-                print(i["properties"]["place"], feltReports, "times")
+                print(i["properties"]["place"], feltReports, "times. With a magnitude of", i["properties"]["mag"], "at time", i["properties"]["time"])
   
 def main():
     # define a variable to hold the source URL
