@@ -12,6 +12,7 @@ class MyHTMLParser(HTMLParser):
         print("At line:", pos[0], " position", pos[1])
 
     def handle_starttag(self, tag, attrs):
+        #stuff
         pass
 
     def handle_data(self, data):
