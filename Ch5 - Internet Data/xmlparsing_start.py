@@ -14,10 +14,15 @@ def main():
     print(doc.firstChild.tagName)
     
     # get a list of XML tags from the document and print each one
-
+    skills = doc.getElementsByTagName("skill")
+    print(skills.length, " skills are listed")
+    for skill in skills:
+        print(skill.getAttribute("name"))
       
     # create a new XML tag and add it into the document
-
+    newSkill = doc.createElement("skill")
+    newSkill.setAttribute("name", "jQuery")
+    doc.firstChild.appendChild(newSkill)
   
 
 if __name__ == "__main__":
