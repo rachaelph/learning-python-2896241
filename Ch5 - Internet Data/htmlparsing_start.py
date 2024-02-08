@@ -7,7 +7,9 @@ from html.parser import HTMLParser
 
 class MyHTMLParser(HTMLParser):
     def handle_comment(self, data):
-        pass
+        print("Encountered a comment:", data)
+        pos = self.gotpos()
+        print("At line:", pos[0], " position", pos[1])
 
     def handle_starttag(self, tag, attrs):
         pass
